@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+	<title>支付宝手机支付DEMO</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="js/angular.min.js"></script>
+</head>
+<body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
+	<div>
+		<div>
+            <span class="title">支付宝即时到账WEB支付</span>
+		</div>
+        <form name=alipayment action=http://wall.hunliji.com/gww/alipay_web method=post target="_blank">
+            <div >
+                <dl class="content">
+					<dd>支付金额：<input size="30" name="fee" value =0.01 /></dd>
+					<dd>&nbsp</dd>
+					<dd>支付说明：<input size="30" name="subject" value =WEB测试订单 /></dd>
+					<dd>&nbsp</dd>
+                    <dd><button class="new-btn-login" type="submit" style="text-align:center;">支付</button></dd>
+                </dl>
+            </div>
+		</form>
+		<div>
+            <span class="title">支付宝手机快捷支付</span>
+		</div>
+        <form name=alipayment action=http://wall.hunliji.com/gww/alipay_wap method=post target="_blank">
+            <div >
+                <dl class="content">
+					<dd>支付金额：<input size="30" name="fee" value =0.01 /></dd>
+					<dd>&nbsp</dd>
+					<dd>支付说明：<input size="30" name="subject" value =WAP测试订单 /></dd>
+					<dd>&nbsp</dd>
+                    <dd><button class="new-btn-login" type="submit" style="text-align:center;">支付</button></dd>
+                </dl>
+            </div>
+		</form>
+		<div>
+            <span class="title">支付宝退款</span>
+		</div>
+        <form name=alipayrefund action=http://wall.hunliji.com/gww/alipay_refund method=post target="_blank">
+            <div>
+                <dl class="content">
+					<dd>交易单号：<input size="30" name="trade_no" /></dd>
+					<dd>&nbsp</dd>
+					<dd>退款金额：<input size="30" name="fee" value =0.01 /></dd>
+					<dd>&nbsp</dd>
+					<dd>退款说明：<input size="30" name="desc" value =退款测试 /></dd>
+					<dd>&nbsp</dd>
+                    <dd><button class="new-btn-login" type="submit" style="text-align:center;">退款</button></dd>
+                </dl>
+            </div>
+		</form>
+		<div ng-app="">
+			<div ng-controller="AlipayLogCtrl">
+				<div>
+					<span class="title">支付记录表</span>
+					<button ng-click="flush()">刷新</button>
+				</div>
+				<table>
+					<tr>
+					<th>交易号</th><th>付款者</th><th>金额</th><th>商品</th><th>订单号</th><th>创建时间</th><th>付款时间</th><th>付款方式</th>
+					</tr>
+					<tr ng-repeat="x in logs">
+						<td>{{x.trade_no}}</td>
+						<td>{{x.buyer_email}}</td>
+						<td>{{x.total_fee}}</td>
+						<td>{{x.subject}}</td>
+						<td>{{x.out_trade_no}}</td>
+						<td>{{x.gmt_create}}</td>
+						<td>{{x.gmt_payment}}</td>
+						<td>{{x.pay_type}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+function AlipayLogCtrl($scope,$http) {
+	$scope.flush = function() {
+    	$http.get("http://wall.hunliji.com/gww/alipay_log?sort=desc&count=30").success(function(response) {$scope.logs =response.logs;});
+    };
+	$scope.flush();
+}
+</script>
+</html>
