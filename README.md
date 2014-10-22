@@ -13,7 +13,7 @@ alipaydemo
 
 修改alipay.go中部分带"xxxx"的参数，然后修改html中paydemo.html中对应的网址  
 
-运行后，在本地直接打开html，或者输入"http:127.0.0.1:3000/html/paydemo.html"可以进行测试  
+运行后，在本地直接打开html，或者浏览器地址栏输入"http:127.0.0.1:3000/html/paydemo.html"可以进行测试  
 
 初学之作，对照go语言半小时速成和golang.org文档写成，水平有限，欢迎指正  
 
