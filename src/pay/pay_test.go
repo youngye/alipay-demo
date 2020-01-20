@@ -10,7 +10,7 @@ import (
 
 
 func TestPay(t *testing.T) {
-	sStr	:="_input_charset=utf-8&format=xml&partner=2088801631363292&req_data=<direct_trade_create_req><notify_url>http://www2.hunliji.com:8080/alipay/notify_url.jsp</notify_url><call_back_url>http://www2.hunliji.com:8080/alipay/call_back_url.jsp</call_back_url><seller_account_name>firecloud168@gmail.com</seller_account_name><out_trade_no>100001</out_trade_no><subject>测试订单(1分钱)</subject><total_fee>0.01</total_fee><merchant_url>http://www2.hunliji.com:8080/alipay/index.jsp</merchant_url></direct_trade_create_req>&req_id=20141016131529&sec_id=MD5&service=alipay.wap.trade.create.direct&v=2.0"
+	sStr	:="_input_charset=utf-8&format=xml&partner=2088801631363292&req_data=<direct_trade_create_req><notify_url>http://xxx.com:8080/alipay/notify_url.jsp</notify_url><call_back_url>http://www2.hunliji.com:8080/alipay/call_back_url.jsp</call_back_url><seller_account_name>firecloud168@gmail.com</seller_account_name><out_trade_no>100001</out_trade_no><subject>测试订单(1分钱)</subject><total_fee>0.01</total_fee><merchant_url>http://xxx.com:8080/alipay/index.jsp</merchant_url></direct_trade_create_req>&req_id=20141016131529&sec_id=MD5&service=alipay.wap.trade.create.direct&v=2.0"
 	sSign	:=alipayMd5Sign(sStr)
 	log.Printf("sSign: %s", sSign)
 	
