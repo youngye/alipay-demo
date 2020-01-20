@@ -11,7 +11,7 @@
 		<div>
             <span class="title">支付宝即时到账WEB支付</span>
 		</div>
-        <form name=alipayment action=http://wall.hunliji.com/gww/alipay_web method=post target="_blank">
+        <form name=alipayment action=http://xxx.com/gww/alipay_web method=post target="_blank">
             <div >
                 <dl class="content">
 					<dd>支付金额：<input size="30" name="fee" value =0.01 /></dd>
@@ -25,7 +25,7 @@
 		<div>
             <span class="title">支付宝手机快捷支付</span>
 		</div>
-        <form name=alipayment action=http://wall.hunliji.com/gww/alipay_wap method=post target="_blank">
+        <form name=alipayment action=http://xxx.com/gww/alipay_wap method=post target="_blank">
             <div >
                 <dl class="content">
 					<dd>支付金额：<input size="30" name="fee" value =0.01 /></dd>
@@ -39,7 +39,7 @@
 		<div>
             <span class="title">支付宝退款</span>
 		</div>
-        <form name=alipayrefund action=http://wall.hunliji.com/gww/alipay_refund method=post target="_blank">
+        <form name=alipayrefund action=http://xxx.com/gww/alipay_refund method=post target="_blank">
             <div>
                 <dl class="content">
 					<dd>交易单号：<input size="30" name="trade_no" /></dd>
@@ -80,7 +80,7 @@
 <script>
 function AlipayLogCtrl($scope,$http) {
 	$scope.flush = function() {
-    	$http.get("http://wall.hunliji.com/gww/alipay_log?sort=desc&count=30").success(function(response) {$scope.logs =response.logs;});
+    	$http.get("http://xxx.com/gww/alipay_log?sort=desc&count=30").success(function(response) {$scope.logs =response.logs;});
     };
 	$scope.flush();
 }
